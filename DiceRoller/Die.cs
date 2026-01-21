@@ -26,5 +26,22 @@ public class Die
     /// Gets the number of sides for the die.
     /// </summary>
     public byte NumberOfSides { get; private set; }
+
+    /// <summary>
+    /// The current face up value for the die.
+    /// </summary>
+    public byte FaceUpValue { get; private set; }
+
+    /// <summary>
+    /// Generates a random value representing the result of rolling the die and updates the face-up value.
+    /// </summary>
+    /// <returns>A byte value between 1 and the number of sides on the die, inclusive, indicating the result of the roll.</returns>
+    public byte Roll()
+    {
+        Random rand = new();
+        FaceUpValue = Convert.ToByte(rand.Next(1, NumberOfSides + 1));
+
+        return FaceUpValue;
+    }
 }
 
